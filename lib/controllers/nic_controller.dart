@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import '../models/nic_model.dart';
 import '../utils/nic_decoder.dart';
 import '../utils/nic_formats.dart';
-/////
+
 
 class NicController extends GetxController {
   var nicTextController = TextEditingController();
@@ -23,7 +23,6 @@ class NicController extends GetxController {
         Get.snackbar('Error', 'Please enter NIC number');
         return;
       }
-      //hhccbcbcbc
       
 
       NicModel nicModel = NicDecoder.decodeNic(nic);
