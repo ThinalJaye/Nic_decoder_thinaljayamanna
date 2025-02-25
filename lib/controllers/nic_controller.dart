@@ -4,9 +4,12 @@ import '../models/nic_model.dart';
 import '../utils/nic_decoder.dart';
 import '../utils/nic_formats.dart';
 
-
+/// Controller responsible for NIC number decoding and validation operations.
 class NicController extends GetxController {
+  /// The current NIC number input
   var nicTextController = TextEditingController();
+  
+  /// The decoded NIC data result
   var dateOfBirth = ''.obs;
   var gender = ''.obs;
   var age = 0.obs;
@@ -16,6 +19,8 @@ class NicController extends GetxController {
   var serialNumber = ''.obs;
   final RxString nicFormat = ''.obs;
 
+  /// Validates and decodes the input NIC number.
+  /// Returns true if successful, false otherwise.
   void decodeNic() {
     String nic = nicTextController.text.trim();
     try {
@@ -40,6 +45,8 @@ class NicController extends GetxController {
     }
   }
 
+  /// Determines the NIC format.
+  /// Returns 'Old Format (9 digits + letter)', 'New Format (12 digits)', or 'Invalid Format'.
   void detectFormat(String nic) {
     if (NICFormats.isOldFormat(nic)) {
       nicFormat.value = 'Old Format (9 digits + letter)';
